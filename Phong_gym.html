@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymPro Management</title>
+    <link rel="stylesheet" href="phong-gym.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="screen active" id="admin-menu">
+            <div class="header">
+                <h1>Tài khoản của tôi</h1>
+            </div>
+            <div class="profile-section">
+                <div class="avatar">👨</div>
+                <div class="profile-info">
+                    <h3>Nguyên Văn Admin</h3>
+                </div>
+            </div>
+            <div class="menu-list">
+                <div class="menu-item" onclick="showScreen('employee-management')">
+                    <h3>Quản lý danh sách nhân viên</h3>
+                    <p>Thêm Sửa Xoá thông tin nhân viên và các chức năng</p>
+                </div>
+                <div class="menu-item" onclick="showScreen('revenue-management')">
+                    <h3>Quản lý tổng doanh thu</h3>
+                    <p>Theo dõi và tổng hợp doanh thu các gói tập</p>
+                </div>
+                <div class="menu-item" onclick="showScreen('package-management')">
+                    <h3>Quản lý gói tập</h3>
+                    <p>Tạo, sửa, xoá gói tập</p>
+                </div>
+                <div class="menu-item" onclick="showScreen('transaction-history')">
+                    <h3>Theo dõi lịch sử giao dịch</h3>
+                    <p>Theo dõi các giao dịch đã thực hiện</p>
+                </div>
+                <div class="menu-item" onclick="showScreen('product-management')">
+                    <h3>Quản lý sản phẩm</h3>
+                    <p>Tạo, sửa, xoá sản phẩm</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="manager-profile">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('employee-management')">←</button>
+                <h1>Quản lý</h1>
+            </div>
+            <div class="profile-detail">
+                <div class="avatar">👨</div>
+                <h2>Nguyên Văn Quán Lý</h2>
+                <div class="detail-field">
+                    <label>Email:</label>
+                    <div class="value">nguyenvanq@gmail.com</div>
+                </div>
+                <div class="detail-field">
+                    <label>Chi nhánh phụ trách:</label>
+                    <div class="value">GymPro quận Tân Phú</div>
+                </div>
+                <button class="btn btn-primary">Xem lịch sử thao tác</button>
+                <button class="btn btn-danger">Đổi mật khẩu</button>
+                <button class="btn btn-secondary">Lưu lại</button>
+                <button class="btn btn-logout">Đăng xuất</button>
+            </div>
+        </div>
+
+        <div class="screen" id="employee-profile">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('employee-management')">←</button>
+                <h1>Nhân viên</h1>
+            </div>
+            <div class="profile-detail">
+                <div class="avatar">👨</div>
+                <h2>Nguyên Văn Nhân Viên</h2>
+                <div class="detail-field">
+                    <label>ID Nhân viên:</label>
+                    <div class="value">#NV1001</div>
+                </div>
+                <div class="detail-field">
+                    <label>Ca trực:</label>
+                    <div class="value">Ca A5, B3</div>
+                </div>
+                <button class="btn btn-primary">Xem lịch sử thao tác</button>
+                <button class="btn btn-danger">Đổi mật khẩu</button>
+                <button class="btn btn-secondary">Lưu lại</button>
+                <button class="btn btn-logout">Đăng xuất</button>
+            </div>
+        </div>
+
+        <div class="screen" id="product-management">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('admin-menu')">←</button>
+                <h1>Sản phẩm bán tại quầy</h1>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image"><img src="image_72d0f7.png" alt="ON Gold Standard 100% Whey 5lbs"></div>
+                    <div class="product-info">
+                        <div class="product-name">ON Gold Standard 100% Whey 5lbs</div>
+                        <div class="product-price">2.150.000đ <strike>2.500.000đ</strike></div>
+                        <div class="product-discount">-10%</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><img src="image_72d0f7.png" alt="Rule1 Protein 5lbs"></div>
+                    <div class="product-info">
+                        <div class="product-name">Rule1 Protein 5lbs</div>
+                        <div class="product-price">1.850.000đ <strike>2.200.000đ</strike></div>
+                        <div class="product-discount">-5%</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><img src="image_72d0f7.png" alt="Mutant Iso Surge 5lbs"></div>
+                    <div class="product-info">
+                        <div class="product-name">Mutant Iso Surge 5lbs</div>
+                        <div class="product-price">1.850.000đ <strike>2.700.000đ</strike></div>
+                        <div class="product-discount">-10%</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><img src="image_72d0f7.png" alt="Nutrabolics Hydropure 100% Hydrolyzed Whey Protein 4.5lbs"></div>
+                    <div class="product-info">
+                        <div class="product-name">Nutrabolics Hydropure 100% Hydrolyzed Whey Protein 4.5lbs</div>
+                        <div class="product-price">1.890.000đ <strike>2.900.000đ</strike></div>
+                        <div class="product-discount">-18%</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><img src="image_72d0f7.png" alt="ON Gold Standard 100% Whey 10lbs"></div>
+                    <div class="product-info">
+                        <div class="product-name">ON Gold Standard 100% Whey 10lbs</div>
+                        <div class="product-price">3.800.000đ <strike>4.200.000đ</strike></div>
+                        <div class="product-discount">-5%</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><img src="image_72d0f7.png" alt="Warrior Crunch Protein Bar"></div>
+                    <div class="product-info">
+                        <div class="product-name">Warrior Crunch Protein Bar</div>
+                        <div class="product-price">690.000đ <strike>750.000đ</strike></div>
+                        <div class="product-discount">-4%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-group" style="padding: 20px; text-align: center;">
+                <button class="btn btn-secondary" onclick="showScreen('add-product-info')">Thêm sản phẩm mới</button>
+            </div>
+        </div>
+
+        <div class="screen" id="staff-menu">
+            <div class="header">
+                <h1>Tài khoản của tôi</h1>
+            </div>
+            <div class="profile-section">
+                <div class="avatar">👨</div>
+                <div class="profile-info">
+                    <h3>Nguyên Văn Nhân Viên</h3>
+                </div>
+            </div>
+            <div class="menu-list">
+                <div class="menu-item" onclick="showScreen('checkin')">
+                    <h3>Check-in cho khách</h3>
+                    <p>Ghi nhận số lần check in hàng ngày của khách hàng</p>
+                </div>
+                <div class="menu-item" onclick="showScreen('payment-packages')">
+                    <h3>Cập nhật thanh toán, trạng thái gói tập</h3>
+                    <p>Thanh toán và gói tập cho khách hàng</p>
+                </div>
+                <div class="menu-item" onclick="showScreen('customer-management')">
+                    <h3>Quản lý khách hàng</h3>
+                    <p>Theo dõi thông tin và lịch sử giao dịch của khách hàng</p>
+                </div>
+                <div class="menu-item" onclick="showScreen('consultation')">
+                    <h3>Tư vấn và ghi chú khách hàng</h3>
+                    <p>Ghi chú thông tin và phù của khách hàng để phục vụ tốt hơn</p>
+                </div>
+                <div class="menu-item" onclick="showScreen('promotion-management')">
+                    <h3>Quản lý sản phẩm bán tại quầy</h3>
+                    <p>Theo dõi, xóa và phàn</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="employee-management">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('admin-menu')">←</button>
+                <h1>Quản lý nhân viên</h1>
+            </div>
+            <div class="employee-list">
+                <div class="employee-item add-employee" onclick="showScreen('edit-member')">+ Thêm nhân viên mới</div>
+                <div class="employee-item" onclick="showScreen('edit-member')">#10124NV Vo Thi Bè</div>
+                <div class="employee-item" onclick="showScreen('edit-member')">#10125NV Thái Thị My</div>
+                <div class="employee-item" onclick="showScreen('edit-member')">#10126NV Đinh Văn Vũ</div>
+                <div class="employee-item" onclick="showScreen('edit-member')">#10127NV Nguyên Văn Qui</div>
+                <div class="employee-item" onclick="showScreen('edit-member')">#10128NV Võ Thị Ú</div>
+                <div class="employee-item" onclick="showScreen('edit-member')">#10129NV Thu Thị Mộng</div>
+                <div class="employee-item" onclick="showScreen('edit-member')">#10130NV Đinh Văn Vong</div>
+            </div>
+        </div>
+
+        <div class="screen" id="edit-member">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('employee-management')">←</button>
+                <h1>Chỉnh sửa thành viên</h1>
+            </div>
+            <div class="form-container edit-member-form">
+                <div class="form-group">
+                    <label>Upload ảnh:</label>
+                    <input type="file" id="upload-image-input" style="display: none;">
+                    <button class="btn btn-secondary" onclick="document.getElementById('upload-image-input').click()">Chọn tệp</button>
+                    <span>chưa chọn tệp nào</span>
+                </div>
+                <div class="form-group">
+                    <label>Tên thành viên:</label>
+                    <input type="text" value="Nguyễn Văn A">
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại:</label>
+                    <input type="text" value="0907979865">
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ:</label>
+                    <input type="text" value="Hồ Chí Minh">
+                </div>
+                <div class="form-group">
+                    <label>Giới tính:</label>
+                    <div class="gender-options">
+                        <label class="gender-option">
+                            <input type="radio" name="gender" value="Nam" checked> Nam
+                        </label>
+                        <label class="gender-option">
+                            <input type="radio" name="gender" value="Nữ"> Nữ
+                        </label>
+                        <label class="gender-option">
+                            <input type="radio" name="gender" value="Khác"> Khác
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Ngày sinh:</label>
+                    <input type="text" value="Ngày 08 thg 09, 2005">
+                </div>
+                 <div class="warning-box" style="display: none;" id="delete-member-confirm-box">
+                    Bạn có muốn xóa thành viên <br> Nguyễn Văn A?
+                    <div class="confirm-buttons">
+                        <div class="btn-cancel-small" onclick="hideDeleteMemberConfirm()">Hủy</div>
+                        <div class="btn-delete-small">Xóa</div>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-save">Lưu lại</button>
+                    <button class="btn btn-cancel" onclick="showDeleteMemberConfirm()">Xóa bỏ</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="promotion-management">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('staff-menu')">←</button>
+                <h1>Quản Lý Khuyến Mãi</h1>
+            </div>
+            <div class="menu-list">
+                <div class="menu-item" onclick="showScreen('promotion-list')">
+                    <h3>Xem danh sách khuyến mãi</h3>
+                    <p>Hiển thị tất cả các chương trình khuyến mãi hiện có.</p>
+                </div>
+                <div class="menu-item" onclick="showScreen('add-promotion')">
+                    <h3>Thêm thông tin khuyến mãi</h3>
+                    <p>Tạo chương trình khuyến mãi mới.</p>
+                </div>
+                <div class="menu-item" onclick="showScreen('edit-promotion')">
+                    <h3>Sửa thông tin khuyến mãi</h3>
+                    <p>Chỉnh sửa chi tiết một chương trình khuyến mãi.</p>
+                </div>
+                <div class="menu-item" onclick="showScreen('delete-promotion')">
+                    <h3>Xóa thông tin khuyến mãi</h3>
+                    <p>Xóa một chương trình khuyến mãi không còn hiệu lực.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="promotion-list">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('promotion-management')">←</button>
+                <h1>Danh Sách Khuyến Mãi</h1>
+            </div>
+            <div class="promo-list">
+                <div class="promo-item" onclick="showScreen('promotion-detail')">
+                    <h4>Khuyến Mãi Lễ Tình Nhân</h4>
+                    <div class="promo-details">Mã: VALENTINE2025</div>
+                    <div class="promo-details">Giảm: 10%</div>
+                    <div class="promo-time">
+                        <span>Bắt Đầu: 10/02/2025</span>
+                        <span>Kết Thúc: 15/02/2025</span>
+                    </div>
+                </div>
+                <div class="promo-item" onclick="showScreen('promotion-detail')">
+                    <h4>Ưu Đãi Hè Sôi Động</h4>
+                    <div class="promo-details">Mã: SUMMERFIT</div>
+                    <div class="promo-details">Giảm: 15%</div>
+                    <div class="promo-time">
+                        <span>Bắt Đầu: 01/06/2025</span>
+                        <span>Kết Thúc: 31/08/2025</span>
+                    </div>
+                </div>
+                <div class="promo-item" onclick="showScreen('promotion-detail')">
+                    <h4>Khuyến Mãi Black Friday</h4>
+                    <div class="promo-details">Mã: BFCM2025</div>
+                    <div class="promo-details">Giảm: 20%</div>
+                    <div class="promo-time">
+                        <span>Bắt Đầu: 29/11/2025</span>
+                        <span>Kết Thúc: 02/12/2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="promotion-detail">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('promotion-list')">←</button>
+                <h1>Chi Tiết Khuyến Mãi</h1>
+            </div>
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Mã Khuyến Mãi:</label>
+                    <input type="text" value="VALENTINE2025" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Tên Khuyến Mãi:</label>
+                    <input type="text" value="Khuyến Mãi Lễ Tình Nhân" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Tỷ Lệ Giảm Giá:</label>
+                    <input type="text" value="10%" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Thời Gian Khuyến Mãi</label>
+                </div>
+                <div class="time-inputs">
+                    <div class="form-group">
+                        <label>Bắt đầu:</label>
+                        <input type="text" value="10/02/2025 00:00" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Kết thúc:</label>
+                        <input type="text" value="15/02/2025 23:59" readonly>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="showScreen('edit-promotion')">Sửa đổi</button>
+                    <button class="btn btn-danger" onclick="showScreen('delete-confirmation')">Xóa bỏ</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="add-promotion">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('promotion-management')">←</button>
+                <h1>Thêm Thông Tin Khuyến Mãi</h1>
+            </div>
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Mã Khuyến Mãi:</label>
+                    <input type="text" placeholder="Mã Khuyến Mãi">
+                </div>
+                <div class="form-group">
+                    <label>Tên Khuyến Mãi:</label>
+                    <input type="text" placeholder="Tên Khuyến Mãi">
+                </div>
+                <div class="form-group">
+                    <label>Tỷ Lệ Giảm Giá:</label>
+                    <input type="number" placeholder="% giảm giá" min="0" max="100">
+                </div>
+                <div class="form-group">
+                    <label>Thời Gian Khuyến Mãi</label>
+                </div>
+                <div class="time-inputs">
+                    <div class="form-group">
+                        <label>Bắt đầu:</label>
+                        <input type="datetime-local" placeholder="Thời gian bắt đầu">
+                    </div>
+                    <div class="form-group">
+                        <label>Kết thúc:</label>
+                        <input type="datetime-local" placeholder="Thời gian kết thúc">
+                    </div>
+                </div>
+                <button class="btn btn-save">Lưu lại</button>
+            </div>
+        </div>
+
+        <div class="screen" id="edit-promotion">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('promotion-list')">←</button>
+                <h1>Sửa Thông Tin Khuyến Mãi</h1>
+            </div>
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Mã Khuyến Mãi:</label>
+                    <input type="text" value="VALENTINE2025">
+                </div>
+                <div class="form-group">
+                    <label>Tên Khuyến Mãi:</label>
+                    <input type="text" value="Khuyến Mãi Lễ Tình Nhân">
+                </div>
+                <div class="form-group">
+                    <label>Tỷ Lệ Giảm Giá:</label>
+                    <input type="number" value="10" min="0" max="100">
+                </div>
+                <div class="form-group">
+                    <label>Thời Gian Khuyến Mãi</label>
+                </div>
+                <div class="time-inputs">
+                    <div class="form-group">
+                        <label>Bắt đầu:</label>
+                        <input type="datetime-local" value="2025-02-10T00:00">
+                    </div>
+                    <div class="form-group">
+                        <label>Kết thúc:</label>
+                        <input type="datetime-local" value="2025-02-15T23:59">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-save">Lưu lại</button>
+                    <button class="btn btn-cancel">Hủy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="delete-promotion">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('promotion-management')">←</button>
+                <h1>Xóa Thông Tin Khuyến Mãi</h1>
+            </div>
+            <div class="promo-list">
+                <div class="promo-item">
+                    <h4>Khuyến Mãi Lễ Tình Nhân</h4>
+                    <button class="delete-btn">X</button>
+                </div>
+                <div class="promo-item">
+                    <h4>Ưu Đãi Hè Sôi Động</h4>
+                    <button class="delete-btn">X</button>
+                </div>
+                <div class="promo-item">
+                    <h4>Khuyến Mãi Black Friday</h4>
+                    <button class="delete-btn">X</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="delete-confirmation">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('delete-promotion')">←</button>
+                <h1>Xóa Thông Tin Khuyến Mãi</h1>
+            </div>
+            <div class="form-container">
+                <div class="warning-box">
+                    Bạn có chắc chắn muốn xóa khuyến mãi này không?
+                    <br>
+                    <br>
+                    <strong>Khuyến Mãi Lễ Tình Nhân</strong>
+                    <div class="confirm-buttons">
+                        <div class="btn-cancel-small" onclick="showScreen('delete-promotion')">Hủy</div>
+                        <div class="btn-delete-small">Xóa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="checkin">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('staff-menu')">←</button>
+                <h1>Check - in cho khách</h1>
+            </div>
+            <div class="checkin-container">
+                <input type="text" class="search-box" placeholder="Tìm kiếm theo tên, số điện thoại...">
+                <div class="member-card">
+                    <div class="member-avatar">NA</div>
+                    <div class="member-info">
+                        <h4>Nguyên Văn A</h4>
+                        <p>Trạng thái gói tập: <span class="status-badge status-active">Còn hạn</span></p>
+                        <p>Hạn đến: 31/09/2025</p>
+                    </div>
+                </div>
+                <button class="checkin-btn">Check-in ngay</button>
+            </div>
+        </div>
+
+        <div class="screen" id="customer-management">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('staff-menu')">←</button>
+                <h1>Quản lý khách hàng</h1>
+            </div>
+            <div class="checkin-container">
+                <input type="text" class="search-box" placeholder="Tìm kiếm theo tên, số điện thoại...">
+                <div class="filter-tabs">
+                    <div class="filter-tab active" onclick="showCustomerFilter('all')">Tất cả</div>
+                    <div class="filter-tab" onclick="showCustomerFilter('active')">Còn hạn</div>
+                    <div class="filter-tab" onclick="showCustomerFilter('expired')">Hết hạn</div>
+                </div>
+                <div class="customer-list" id="customer-list-container">
+                    <div class="customer-card customer-active">
+                        <div class="customer-header">
+                            <div>
+                                <div class="customer-name">Nguyên Văn A</div>
+                                <div>0397979865</div>
+                                <div>Hạn đến: 31/09/2025</div>
+                            </div>
+                            <div>
+                                <div class="status-badge status-active">Còn hạn</div>
+                                <button class="view-btn">XEM</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="customer-card customer-expired">
+                        <div class="customer-header">
+                            <div>
+                                <div class="customer-name">Nguyên Thị B</div>
+                                <div>0397979866</div>
+                                <div>Hết hạn: 15/05/2025</div>
+                            </div>
+                            <div>
+                                <div class="status-badge status-expired">Hết hạn</div>
+                                <button class="view-btn">XEM</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="customer-card customer-active">
+                        <div class="customer-header">
+                            <div>
+                                <div class="customer-name">Trần Văn C</div>
+                                <div>0912345678</div>
+                                <div>Hạn đến: 01/12/2025</div>
+                            </div>
+                            <div>
+                                <div class="status-badge status-active">Còn hạn</div>
+                                <button class="view-btn">XEM</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="screen" id="package-management">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('admin-menu')">←</button>
+                <h1>Quản lý gói tập</h1>
+            </div>
+            <div class="package-list">
+                <div class="package-card" onclick="showScreen('package-detail')">
+                    <div class="package-name">Gói 1 tháng</div>
+                    <ul class="package-details">
+                        <li>• Giá: 500.000 vnđ</li>
+                        <li>• Thời hạn: 30 ngày</li>
+                    </ul>
+                </div>
+                <div class="package-card" onclick="showScreen('package-detail')">
+                    <div class="package-name">Gói 3 tháng</div>
+                    <ul class="package-details">
+                        <li>• Giá: 1.367.000 vnđ</li>
+                        <li>• Thời hạn: 90 ngày</li>
+                    </ul>
+                </div>
+                <div class="package-card" onclick="showScreen('package-detail')">
+                    <div class="package-name">Gói 6 tháng</div>
+                    <ul class="package-details">
+                        <li>• Giá: 2.567.000 vnđ</li>
+                        <li>• Thời hạn: 180 ngày</li>
+                    </ul>
+                </div>
+                <div class="package-card" onclick="showScreen('package-detail')">
+                    <div class="package-name">Gói 1 năm</div>
+                    <ul class="package-details">
+                        <li>• Giá: 5.500.000 vnđ</li>
+                        <li>• Thời hạn: 365 ngày</li>
+                    </ul>
+                </div>
+                <div class="add-package" onclick="showScreen('add-package')">+ Thêm gói mới</div>
+            </div>
+        </div>
+
+
+        <div class="screen" id="add-package">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('package-management')">←</button>
+                <h1>Tạo mới gói</h1>
+            </div>
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Tên gói:</label>
+                    <input type="text" placeholder="Tên của gói">
+                </div>
+                <div class="time-inputs">
+                    <div class="form-group">
+                        <label>Thời hạn:</label>
+                        <input type="number" placeholder="Số ngày/tháng/năm">
+                    </div>
+                    <div class="form-group">
+                        <label>Đơn vị:</label>
+                        <input type="text" placeholder="Ngày, Tháng, Năm">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Giá tiền:</label>
+                    <input type="text" placeholder="Nhập giá tiền">
+                </div>
+                <div class="form-group">
+                    <label>Mô tả:</label>
+                    <textarea placeholder="Nếu có"></textarea>
+                </div>
+                <button class="btn btn-primary">Kích hoạt</button>
+            </div>
+        </div>
+
+        <div class="screen" id="package-detail">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('package-management')">←</button>
+                <h1>Chi tiết gói tập</h1>
+            </div>
+            <div class="package-detail-screen">
+                <div class="package-info-box">
+                    <h2>Gói 1 tháng</h2>
+                    <p>Giá: 500.000 vnđ</p>
+                    <p>Thời hạn: 30 ngày</p>
+                </div>
+                <div class="package-description-box">
+                    <h3>Mô tả:</h3>
+                    <ul>
+                        <li>Tập không giới hạn</li>
+                        <li>Free 2 buổi PT</li>
+                        <li>Free xông hơi</li>
+                    </ul>
+                </div>
+                <div class="customer-count-box">
+                    Danh sách khách đang sử dụng: 27
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-edit-package">Sửa</button>
+                    <button class="btn btn-delete-package">Xóa</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="revenue-management">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('admin-menu')">←</button>
+                <h1>Theo dõi tổng doanh thu</h1>
+            </div>
+            <div class="revenue-tabs">
+                <div class="revenue-tab active" id="today-tab">Hôm nay</div>
+                <div class="revenue-tab" id="7-days-tab">7 ngày qua</div>
+                <div class="revenue-tab" id="month-tab">Tháng này</div>
+                <div class="filter-icon">⚙️</div>
+            </div>
+            <div class="revenue-summary">
+                <h2>Tổng doanh thu</h2>
+                <div class="total-revenue" id="revenue-amount">5.000.000 vnđ</div>
+                <div class="packages-sold" id="packages-sold">10 gói</div>
+            </div>
+            <div class="revenue-chart">
+                <div class="bar" style="height: 40%;"></div>
+                <div class="bar" style="height: 60%;"></div>
+                <div class="bar" style="height: 30%;"></div>
+                <div class="bar" style="height: 70%;"></div>
+                <div class="bar" style="height: 50%;"></div>
+                <div class="bar" style="height: 80%;"></div>
+                <div class="bar" style="height: 45%;"></div>
+                <div class="bar" style="height: 65%;"></div>
+                <div class="bar" style="height: 35%;"></div>
+                <div class="bar" style="height: 75%;"></div>
+                <div class="bar" style="height: 55%;"></div>
+                <div class="bar" style="height: 90%;"></div>
+            </div>
+        </div>
+
+        <div class="screen" id="transaction-history">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('admin-menu')">←</button>
+                <h1>Lịch sử giao dịch</h1>
+            </div>
+            <div class="transaction-list">
+                <div class="transaction-item">
+                    <h4>#10019KH Nguyen Van Q</h4>
+                    <p>Gói: 1 tháng</p>
+                    <p>Thanh toán: 500.000 vnđ</p>
+                    <p>Ngày: 26/04/2025</p>
+                    <p class="status-paid">Trạng thái: đã thanh toán</p>
+                </div>
+                <div class="transaction-item">
+                    <h4>#10026KH Vo Van B</h4>
+                    <p>Gói: 1 tháng</p>
+                    <p>Thanh toán: 500.000 vnđ</p>
+                    <p>Ngày: 21/04/2025</p>
+                    <p class="status-paid">Trạng thái: đã thanh toán</p>
+                </div>
+                <div class="transaction-item">
+                    <h4>#10032KH Nguyen Thi L</h4>
+                    <p>Gói: 1 tháng</p>
+                    <p>Thanh toán: 500.000 vnđ</p>
+                    <p>Ngày: 20/04/2025</p>
+                    <p class="status-paid">Trạng thái: đã thanh toán</p>
+                </div>
+                 <div class="transaction-item">
+                    <h4>#10017KH Nguyen Van C</h4>
+                    <p>Gói: 1 tháng</p>
+                    <p>Thanh toán: 500.000 vnđ</p>
+                    <p>Ngày: 20/04/2025</p>
+                    <p class="status-paid">Trạng thái: đã thanh toán</p>
+                </div>
+                <div class="transaction-item">
+                    <h4>#10027KH Le Van B</h4>
+                    <p>Gói: 1 tháng</p>
+                    <p>Thanh toán: 500.000 vnđ</p>
+                    <p>Ngày: 19/04/2025</p>
+                    <p class="status-paid">Trạng thái: đã thanh toán</p>
+                </div>
+                <div class="transaction-item">
+                    <h4>#10024KH Nguyen Thi A</h4>
+                    <p>Gói: 1 tháng</p>
+                    <p>Thanh toán: 500.000 vnđ</p>
+                    <p>Ngày: 19/04/2025</p>
+                    <p class="status-paid">Trạng thái: đã thanh toán</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="add-product-info">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('product-management')">←</button>
+                <h1>Thêm thông tin sản phẩm</h1>
+            </div>
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Tên sản phẩm:</label>
+                    <input type="text" placeholder="Tên sản phẩm">
+                </div>
+                <div class="form-group">
+                    <label>Giá bán:</label>
+                    <input type="number" placeholder="Giá bán">
+                </div>
+                <div class="form-group">
+                    <label>Giá gốc (nếu có khuyến mãi):</label>
+                    <input type="number" placeholder="Giá gốc">
+                </div>
+                <div class="form-group">
+                    <label>Mô tả:</label>
+                    <textarea placeholder="Mô tả sản phẩm"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload ảnh:</label>
+                    <div class="add-product-image-grid">
+                        <div class="add-product-image-placeholder">+</div>
+                        <div class="add-product-image-placeholder">+</div>
+                        <div class="add-product-image-placeholder">+</div>
+                        <div class="add-product-image-placeholder">+</div>
+                        <div class="add-product-image-placeholder">+</div>
+                        <div class="add-product-image-placeholder">+</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary">Lưu sản phẩm</button>
+            </div>
+        </div>
+
+        <div class="screen" id="payment-packages">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('staff-menu')">←</button>
+                <h1>Cập nhật thanh toán</h1>
+            </div>
+            <div class="form-container">
+                <p>Nội dung màn hình "Cập nhật thanh toán, trạng thái gói tập" sẽ được thêm vào đây.</p>
+                <button class="btn btn-secondary">Quay lại</button>
+            </div>
+        </div>
+
+        <div class="screen" id="consultation">
+            <div class="header">
+                <button class="back-btn" onclick="showScreen('staff-menu')">←</button>
+                <h1>Tư vấn và ghi chú</h1>
+            </div>
+            <div class="form-container">
+                <p>Nội dung màn hình "Tư vấn và ghi chú khách hàng" sẽ được thêm vào đây.</p>
+                <button class="btn btn-secondary">Quay lại</button>
+            </div>
+        </div>
+
+        </div>
+
+    <script src="phong-gym.js"></script>
+</body>
+</html>
