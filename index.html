@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpha Fitness</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen">
+      <div class="login-container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <input type="text" placeholder="Tên đăng nhập" id="username">
+        <input type="password" placeholder="Mật khẩu" id="password">
+        <label><input type="checkbox" id="remember"> Ghi nhớ</label>
+        <button onclick="login()">Đăng nhập</button>
+      </div>
+    </div>
+
+    <!-- Home Screen -->
+    <div id="home-screen" class="screen hidden">
+      <h1>Alpha Fitness</h1>
+      <div class="grid">
+        <div class="card" onclick="showScreen('account-screen')">Tài khoản</div>
+        <div class="card" onclick="showScreen('product-screen')">Sản phẩm</div>
+        <div class="card" onclick="showScreen('promotion-screen')">Khuyến mãi</div>
+        <div class="card" onclick="showScreen('login-screen')">Đăng xuất</div>
+      </div>
+    </div>
+
+    <!-- Account Screen -->
+    <div id="account-screen" class="screen hidden">
+      <h2>Quản lý tài khoản</h2>
+      <ul id="account-list"></ul>
+      <button onclick="goBack()">Quay lại</button>
+    </div>
+
+    <!-- Product Screen -->
+    <div id="product-screen" class="screen hidden">
+      <h2>Quản lý sản phẩm</h2>
+      <ul id="product-list"></ul>
+      <button onclick="goBack()">Quay lại</button>
+    </div>
+
+    <!-- Promotion Screen -->
+    <div id="promotion-screen" class="screen hidden">
+      <h2>Quản lý khuyến mãi</h2>
+      <ul id="promotion-list"></ul>
+      <button onclick="goBack()">Quay lại</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
